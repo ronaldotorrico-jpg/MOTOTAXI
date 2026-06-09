@@ -28,11 +28,6 @@ mototaxi-motorapido/
 | Colaborador 1 | `feature/CUERPO`      |
 | Colaborador 2 | `feature/PIE-PAGINA`  |
 
-## Cómo ejecutar en VS Code
 
-```bash
-pip install flask
-python Python.py
-```
 
-Abrir: http://127.0.0.1:5000
+
