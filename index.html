@@ -218,4 +218,128 @@
   </section>
 
 </main>
+  
+
+<!-- ============================================================
+     COLABORADOR 2 ROGER — feature/PIE-PAGINA
+     Sección: Footer con contacto, horarios y redes sociales
+     ============================================================ -->
+<footer class="footer" id="contacto">
+
+  <div class="footer-contenido">
+
+    <!-- Columna 1: Marca -->
+    <div class="footer-col">
+      <div class="footer-logo">🏍️ MotoRapido</div>
+      <p class="footer-descripcion">
+        El servicio de moto taxi más confiable de Cochabamba.
+        Siempre a tiempo, siempre seguros.
+      </p>
+    </div>
+
+    <!-- Columna 2: Información de contacto -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">Contacto</h4>
+      <ul class="footer-lista">
+        <li>📞 <a href="tel:+59171234567">+591 71 234 567</a></li>
+        <li>💬 <a href="https://wa.me/59171234567" target="_blank">WhatsApp</a></li>
+        <li>✉️ <a href="mailto:info@motorapido.bo">info@motorapido.bo</a></li>
+        <li>📍 Av. Heroínas 123, Cochabamba</li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Horarios -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">Horario de Atención</h4>
+      <ul class="footer-lista">
+        <li>Lunes – Viernes: 6:00 – 22:00</li>
+        <li>Sábado: 7:00 – 21:00</li>
+        <li>Domingo: 8:00 – 18:00</li>
+      </ul>
+    </div>
+
+    <!-- Columna 4: Redes sociales -->
+    <div class="footer-col">
+      <h4 class="footer-titulo">Síguenos</h4>
+      <div class="footer-redes">
+        <a href="#" class="red-social" title="Facebook">📘 Facebook</a>
+        <a href="#" class="red-social" title="Instagram">📸 Instagram</a>
+        <a href="#" class="red-social" title="TikTok">🎵 TikTok</a>
+        <a href="https://wa.me/59171234567" class="red-social" title="WhatsApp">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Barra inferior del footer -->
+  <div class="footer-barra">
+    <p>© 2025 MotoRapido — Todos los derechos reservados.</p>
+  </div>
+
+</footer>
+<!-- FIN COLABORADOR 2 -->
+
+
+<!-- ============================================================
+     SCRIPT — Conecta el formulario con Python (app.py / Flask)
+     ============================================================ -->
+<script>
+  // Envío del formulario al servidor Python via fetch
+  document.getElementById('formularioReserva').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const btn      = document.getElementById('btnEnviar');
+    const respDiv  = document.getElementById('formRespuesta');
+
+    // Recoger datos del formulario
+    const datos = {
+      nombre:   document.getElementById('nombre').value.trim(),
+      telefono: document.getElementById('telefono').value.trim(),
+      origen:   document.getElementById('origen').value.trim(),
+      destino:  document.getElementById('destino').value.trim(),
+      fecha:    document.getElementById('fecha').value,
+      hora:     document.getElementById('hora').value,
+      servicio: document.getElementById('servicio').value,
+    };
+
+    // Indicador de carga
+    btn.textContent = '⏳ Enviando...';
+    btn.disabled    = true;
+    respDiv.style.display = 'none';
+
+    try {
+      // Llamada al servidor Python (Flask) en app.py
+      const respuesta = await fetch('/reservar', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(datos),
+      });
+
+      const json = await respuesta.json();
+
+      if (respuesta.ok && json.ok) {
+        respDiv.className   = 'form-respuesta exito';
+        respDiv.textContent = '✅ ' + json.mensaje;
+        document.getElementById('formularioReserva').reset();
+      } else {
+        respDiv.className   = 'form-respuesta error';
+        respDiv.textContent = '❌ ' + (json.error || 'Error al procesar la reserva.');
+      }
+
+    } catch (err) {
+      respDiv.className   = 'form-respuesta error';
+      respDiv.textContent = '❌ No se pudo conectar con el servidor. ¿Está corriendo Python.py?';
+    }
+
+    respDiv.style.display = 'block';
+    btn.textContent = 'Solicitar viaje 🏍️';
+    btn.disabled    = false;
+  });
+</script>
+
+</body>
+</html>
+
 
