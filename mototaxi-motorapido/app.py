@@ -565,3 +565,21 @@ def metodo_no_permitido(e):
 def error_servidor(e):
     return jsonify({"error": "Error interno del servidor.", "detalle": str(e)}), 500
 
+
+# ================================================================
+#  INICIO
+# ================================================================
+
+if __name__ == "__main__":
+    inicializar_db()
+    print()
+    print("=" * 55)
+    print("  🏍️  MotoRapido — Servidor iniciado")
+    print("=" * 55)
+    print("  Sitio web   →  http://127.0.0.1:5000")
+    print("  Admin       →  http://127.0.0.1:5000/reservas/admin")
+    print("  Estadísticas→  http://127.0.0.1:5000/estadisticas")
+    print("  Tarifas     →  http://127.0.0.1:5000/tarifas")
+    print("=" * 55)
+    print()
+    app.run(debug=True)
