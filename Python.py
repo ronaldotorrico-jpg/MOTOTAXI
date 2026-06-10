@@ -76,7 +76,7 @@ def crear_tablas():
     db.close()
     print("  ✅ Base de datos lista:", DB_RUTA)
 
-
+#  COLABORADOR 1 — JIMENA  Rutas: reservas, tarifas y estadísticas
 # ── Datos del negocio ─────────────────────────────────────────
 
 TARIFAS = {
@@ -86,7 +86,7 @@ TARIFAS = {
     "Este/Oeste": {"precio": 27, "tiempo": "22–35 min", "distancia": "10–15 km"},
 }
 
-SERVICIOS_VALIDOS = ["viaje", "delivery", "mensajeria", "encomienda"]
+SERVICIOS_VALIDOS = ["viaje", "delivery", "mensajeria", "encomiendas"]
 ESTADOS_VALIDOS   = ["pendiente", "confirmado", "en camino", "completado", "cancelado"]
 
 
@@ -106,10 +106,6 @@ def inicio():
     Flask busca el archivo en la carpeta definida en static_folder.
     """
     return app.send_static_file("index.html")
-
-#  COLABORADOR 1 — JIMENA  Rutas: reservas, tarifas y estadísticas
-
-# ── POST /reservar ────────────────────────────────────────────
 
 @app.route("/reservar", methods=["POST"])
 def reservar():
