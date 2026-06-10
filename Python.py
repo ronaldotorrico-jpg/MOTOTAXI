@@ -120,17 +120,14 @@ def reservar():
     """
     datos = request.get_json(silent=True)
 
-    # Verificar que llegaron datos
     if not datos:
         return jsonify({"error": "No se recibieron datos."}), 400
 
-    # Validar que todos los campos estén completos
     campos = ["nombre", "telefono", "origen", "destino", "fecha", "hora", "servicio"]
     for campo in campos:
         if not str(datos.get(campo, "")).strip():
             return jsonify({"error": f"El campo '{campo}' es obligatorio."}), 400
 
-    # Validar que el servicio sea válido
     if datos["servicio"] not in SERVICIOS_VALIDOS:
         return jsonify({"error": f"Servicio no válido. Opciones: {SERVICIOS_VALIDOS}"}), 400
 
@@ -140,7 +137,6 @@ def reservar():
     except ValueError:
         return jsonify({"error": "Formato de fecha incorrecto. Use YYYY-MM-DD."}), 400
 
-    # Calcular precio estimado según zona detectada
     texto_ruta = (datos["origen"] + " " + datos["destino"]).lower()
     if "norte" in texto_ruta:
         precio = TARIFAS["Norte"]["precio"]
