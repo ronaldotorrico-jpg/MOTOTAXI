@@ -80,10 +80,10 @@ def crear_tablas():
 # ── Datos del negocio ─────────────────────────────────────────
 
 TARIFAS = {
-    "Centro":     {"precio": 8,  "tiempo": "5–10 min",  "distancia": "0–3 km"},
-    "Norte":      {"precio": 12, "tiempo": "10–15 min", "distancia": "3–6 km"},
-    "Sur":        {"precio": 20, "tiempo": "15–25 min", "distancia": "6–10 km"},
-    "Este/Oeste": {"precio": 27, "tiempo": "25–35 min", "distancia": "10–15 km"},
+    "Centro":     {"precio": 8,  "tiempo": "5–8 min",   "distancia": "0–3 km"},
+    "Norte":      {"precio": 12, "tiempo": "8–15 min",  "distancia": "3–6 km"},
+    "Sur":        {"precio": 20, "tiempo": "15–22 min", "distancia": "6–10 km"},
+    "Este/Oeste": {"precio": 27, "tiempo": "22–35 min", "distancia": "10–15 km"},
 }
 
 SERVICIOS_VALIDOS = ["viaje", "delivery", "mensajeria", "encomienda"]
