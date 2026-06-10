@@ -86,7 +86,7 @@ TARIFAS = {
     "Este/Oeste": {"precio": 27, "tiempo": "25–35 min", "distancia": "10–15 km"},
 }
 
-SERVICIOS_VALIDOS = ["viaje", "delivery", "mensajeria"]
+SERVICIOS_VALIDOS = ["viaje", "delivery", "mensajeria", "encomienda"]
 ESTADOS_VALIDOS   = ["pendiente", "confirmado", "en camino", "completado", "cancelado"]
 
 
