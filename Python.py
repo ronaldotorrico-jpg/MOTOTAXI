@@ -76,17 +76,17 @@ def crear_tablas():
     db.close()
     print("  ✅ Base de datos lista:", DB_RUTA)
 
-
+#  COLABORADOR 1 — JIMENA  Rutas: reservas, tarifas y estadísticas
 # ── Datos del negocio ─────────────────────────────────────────
 
 TARIFAS = {
-    "Centro":     {"precio": 8,  "tiempo": "5–10 min",  "distancia": "0–3 km"},
-    "Norte":      {"precio": 12, "tiempo": "10–15 min", "distancia": "3–6 km"},
-    "Sur":        {"precio": 18, "tiempo": "15–25 min", "distancia": "6–10 km"},
-    "Este/Oeste": {"precio": 25, "tiempo": "25–35 min", "distancia": "10–15 km"},
+    "Centro":     {"precio": 8,  "tiempo": "5–8 min",   "distancia": "0–3 km"},
+    "Norte":      {"precio": 12, "tiempo": "8–15 min",  "distancia": "3–6 km"},
+    "Sur":        {"precio": 20, "tiempo": "15–22 min", "distancia": "6–10 km"},
+    "Este/Oeste": {"precio": 27, "tiempo": "22–35 min", "distancia": "10–15 km"},
 }
 
-SERVICIOS_VALIDOS = ["viaje", "delivery", "mensajeria"]
+SERVICIOS_VALIDOS = ["viaje", "delivery", "mensajeria", "encomiendas"]
 ESTADOS_VALIDOS   = ["pendiente", "confirmado", "en camino", "completado", "cancelado"]
 
 
@@ -107,10 +107,6 @@ def inicio():
     """
     return app.send_static_file("index.html")
 
-#  COLABORADOR 1 — JIMENA  Rutas: reservas, tarifas y estadísticas
-
-# ── POST /reservar ────────────────────────────────────────────
-
 @app.route("/reservar", methods=["POST"])
 def reservar():
     """
@@ -124,17 +120,14 @@ def reservar():
     """
     datos = request.get_json(silent=True)
 
-    # Verificar que llegaron datos
     if not datos:
         return jsonify({"error": "No se recibieron datos."}), 400
 
-    # Validar que todos los campos estén completos
     campos = ["nombre", "telefono", "origen", "destino", "fecha", "hora", "servicio"]
     for campo in campos:
         if not str(datos.get(campo, "")).strip():
             return jsonify({"error": f"El campo '{campo}' es obligatorio."}), 400
 
-    # Validar que el servicio sea válido
     if datos["servicio"] not in SERVICIOS_VALIDOS:
         return jsonify({"error": f"Servicio no válido. Opciones: {SERVICIOS_VALIDOS}"}), 400
 
@@ -144,7 +137,6 @@ def reservar():
     except ValueError:
         return jsonify({"error": "Formato de fecha incorrecto. Use YYYY-MM-DD."}), 400
 
-    # Calcular precio estimado según zona detectada
     texto_ruta = (datos["origen"] + " " + datos["destino"]).lower()
     if "norte" in texto_ruta:
         precio = TARIFAS["Norte"]["precio"]
