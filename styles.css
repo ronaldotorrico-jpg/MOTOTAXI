@@ -235,17 +235,19 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
+/*    COLABORADOR 1 JIMENA */
+
 .main {
   background: var(--blanco);
 }
 
-/* Secciones alternas */
 .seccion {
-  padding: 76px 0;
+  padding: 80px 0;
 }
 
 .seccion-gris {
-  background: var(--gris-fondo);
+  background: #f0f4f8;
 }
 
 .seccion-blanca {
@@ -261,59 +263,61 @@ img {
 
 .tarjeta {
   background: var(--blanco);
-  border-radius: var(--radio);
-  padding: 38px 30px;
+  border-radius: 14px;
+  padding: 42px 32px;
   text-align: center;
-  box-shadow: var(--sombra);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   transition: var(--transicion);
-  border-top: 4px solid transparent;
+  border-top: 5px solid transparent;
 }
 
 .tarjeta:hover {
-  transform: translateY(-7px);
-  box-shadow: var(--sombra-hover);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 36px rgba(255, 107, 0, 0.25);
   border-top-color: var(--naranja);
 }
 
 .tarjeta-destacada {
-  border-top: 4px solid var(--naranja);
-  transform: translateY(-4px);
+  border-top: 5px solid var(--naranja);
+  transform: translateY(-6px);
 }
 
 .tarjeta-icono {
-  font-size: 3.2rem;
-  margin-bottom: 16px;
+  font-size: 3.5rem;
+  margin-bottom: 18px;
+  color: var(--naranja);
 }
 
 .tarjeta-titulo {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--negro);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
 }
 
 .tarjeta-texto {
   color: var(--gris-texto);
   font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 18px;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
 
 .tarjeta-precio {
   display: inline-block;
-  background: var(--naranja-claro);
-  color: var(--naranja-oscuro);
+  background: var(--naranja);
+  color: var(--blanco);
   font-weight: 800;
-  padding: 5px 18px;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  padding: 7px 22px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
-/* ── Tabla de tarifas ── */
 .tabla-wrapper {
   overflow-x: auto;
-  border-radius: var(--radio);
-  box-shadow: var(--sombra);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
 }
 
 .tabla-tarifas {
@@ -329,37 +333,47 @@ img {
 
 .tabla-tarifas th,
 .tabla-tarifas td {
-  padding: 16px 22px;
+  padding: 18px 24px;
   text-align: left;
   font-size: 0.95rem;
 }
 
 .tabla-tarifas th {
   font-weight: 700;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.tabla-tarifas tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: var(--transicion);
 }
 
 .tabla-tarifas tbody tr:nth-child(even) {
-  background: var(--naranja-claro);
+  background: #fff8f0;
 }
 
 .tabla-tarifas tbody tr:hover {
   background: #ffe0b2;
+  transform: scale(1.01);
 }
 
 .tabla-tarifas .precio {
   color: var(--naranja-oscuro);
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 1.05rem;
 }
 
 /* ── Formulario de reserva ── */
 .formulario {
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
   background: var(--blanco);
-  padding: 44px 40px;
-  border-radius: var(--radio);
-  box-shadow: var(--sombra);
+  padding: 48px 44px;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid var(--naranja);
 }
 
 .form-fila {
@@ -372,21 +386,22 @@ img {
 .form-grupo {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
   margin-bottom: 20px;
 }
 
 .form-grupo label {
-  font-weight: 600;
-  font-size: 0.93rem;
-  color: #444;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--negro);
+  letter-spacing: 0.3px;
 }
 
 .form-grupo input,
 .form-grupo select {
-  padding: 12px 16px;
-  border: 2px solid var(--borde);
-  border-radius: var(--radio);
+  padding: 13px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
   font-size: 1rem;
   font-family: var(--fuente);
   color: var(--negro);
@@ -398,31 +413,46 @@ img {
 .form-grupo select:focus {
   outline: none;
   border-color: var(--naranja);
-  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.13);
+  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.15);
+  background: #fffaf7;
 }
 
 .form-respuesta {
   display: none;
-  margin-top: 22px;
-  padding: 16px 20px;
-  border-radius: var(--radio);
+  margin-top: 24px;
+  padding: 18px 22px;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .form-respuesta.exito {
   background: #e8f5e9;
-  color: #2e7d32;
-  border: 1px solid #a5d6a7;
+  color: #1b5e20;
+  border-left: 5px solid #4caf50;
 }
 
 .form-respuesta.error {
   background: #fdecea;
-  color: #c62828;
-  border: 1px solid #ef9a9a;
+  color: #b71c1c;
+  border-left: 5px solid #f44336;
 }
 
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .form-fila {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    padding: 28px 20px;
+  }
+
+  .tarjeta {
+    padding: 30px 20px;
+  }
+}
 /* 
    COLABORADOR 2 ROGER Footer: contacto, horarios y redes sociales
    */
