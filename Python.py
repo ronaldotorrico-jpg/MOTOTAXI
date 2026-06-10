@@ -82,8 +82,8 @@ def crear_tablas():
 TARIFAS = {
     "Centro":     {"precio": 8,  "tiempo": "5–10 min",  "distancia": "0–3 km"},
     "Norte":      {"precio": 12, "tiempo": "10–15 min", "distancia": "3–6 km"},
-    "Sur":        {"precio": 18, "tiempo": "15–25 min", "distancia": "6–10 km"},
-    "Este/Oeste": {"precio": 25, "tiempo": "25–35 min", "distancia": "10–15 km"},
+    "Sur":        {"precio": 20, "tiempo": "15–25 min", "distancia": "6–10 km"},
+    "Este/Oeste": {"precio": 27, "tiempo": "25–35 min", "distancia": "10–15 km"},
 }
 
 SERVICIOS_VALIDOS = ["viaje", "delivery", "mensajeria"]
